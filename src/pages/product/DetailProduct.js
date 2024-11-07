@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Button from '@/components/Button';
 import Price from '@/components/Price';
-import ProductImage from '@/partials/product/ProductImage';
-import ProductVariants from '@/partials/product/ProductVariants';
-import ProductDescription from '@/partials/product/ProductDescription';
+import ProductImage from './ProductImage'
+import Loading from '@/components/Loading';
+import ProductVariants from './ProductVariants'
+import ProductDescription from './ProductDescription'
 
 export default function DetailProduct({ productId }) {
     const [productDetail, setProductDetail] = useState(null);
@@ -34,9 +35,7 @@ export default function DetailProduct({ productId }) {
 
     if (loading) {
         return (
-            <div className="flex justify-center items-center p-8">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
-            </div>
+            <Loading />
         );
     }
 
