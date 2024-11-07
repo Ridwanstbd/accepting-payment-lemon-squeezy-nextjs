@@ -1,12 +1,8 @@
 "use client"
-import Layout from "@/views/layouts/Layout";
-import ListProduct from "@/views/pages/product/ListProduct";
+import Product from "@/pages/product/Product";
 
 export default function Home() {
-
   return (
-    <Layout>
-      <ListProduct />
-    </Layout>
+    <Product />
   );
 }
