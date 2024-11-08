@@ -12,22 +12,19 @@ export async function GET(request, { params }) {
     }
 
     try {
-        // Ambil detail customer
         const customerDetailResponse = await lemonSqueezyApiInstance.get(`/customers/${id}`);
         const customerDetail = customerDetailResponse.data.data;
-        // Ambil semua orders dan filter di sisi server
+
         const ordersResponse = await lemonSqueezyApiInstance.get('/orders');
         const allOrders = ordersResponse.data.data;
         const customerOrders = allOrders.filter(order =>
             order.attributes.customer_id.toString() === id.toString()
         );
-        // Ambil semua subscriptions dan filter di sisi server
         const subscriptionsResponse = await lemonSqueezyApiInstance.get('/subscriptions');
         const allSubscriptions = subscriptionsResponse.data.data;
         const customerSubscriptions = allSubscriptions.filter(subscription =>
             subscription.attributes.customer_id.toString() === id.toString()
         );
-        // Gabungkan semua data
         const customerData = {
             ...customerDetail,
             orders: customerOrders,

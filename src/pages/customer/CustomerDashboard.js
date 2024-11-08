@@ -14,7 +14,7 @@ const CustomerDashboard = ({ customerData, onLogout }) => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <CustomerInfo customerData={customerData} />
-                <Subscriptions subscriptions={customerData.subscriptions} />
+                <Subscriptions customerId={customerData.id} />
                 <Orders orders={customerData.orders} />
             </div>
         </>
